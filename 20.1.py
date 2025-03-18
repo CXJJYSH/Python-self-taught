@@ -16,6 +16,13 @@ class Scraper:
                 continue
             if "html" in url:
                 print("\n"+url)
+        with open("20.1","a") as f:
+            for tag in sp.find_all("a"):
+                url=tag.get("href")
+                if url is None:
+                    continue
+                if "html" in url:
+                    f.write(url+"\n")
 
 news="https://news.sina.com.cn/"
 #news="https://news.google.com/"
